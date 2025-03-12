@@ -1,0 +1,328 @@
+/* styles.css */
+:root {
+    --primary-color: #00ffcc;
+    --secondary-color: #2d3436;
+    --background-dark: #121212;
+    --background-light: #1e1e1e;
+    --text-light: #ffffff;
+    --text-dark: #2d3436;
+    --font-primary: 'Inter', sans-serif;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Reusable Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 8rem 0;
+}
+
+.section__title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn--primary {
+    background: var(--primary-color);
+    color: var(--text-dark);
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+}
+
+/* Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav__list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav__link {
+    color: var(--text-light);
+    text-decoration: none;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav__link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    padding-top: 8rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(45deg, rgba(18, 18, 18, 0.9), rgba(30, 30, 30, 0.7)),
+                url('https://source.unsplash.com/1600x900/?code') center/cover;
+}
+
+.hero__title {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    animation: slideUp 1s ease;
+}
+
+.hero__subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    animation: slideUp 1s ease 0.2s backwards;
+}
+
+.hero__cta {
+    display: flex;
+    gap: 1.5rem;
+    animation: slideUp 1s ease 0.4s backwards;
+}
+
+/* Projects Grid */
+.projects__grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 2rem; /* Vertical spacing between cards */
+    width: 100%;
+    max-width: 1200px; /* Optional max-width for better readability */
+    margin: 0 auto;
+}
+
+.project__card {
+    margin: 1rem; /* Add margin around cards */
+    box-shadow: 0 4px 6px rgba(0, 255, 204, 0.1); /* Optional shadow */
+    background: var(--background-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 204, 0.15);
+}
+
+.project__icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.project__title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.project__description {
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+}
+
+.project__tech {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.project__tech li {
+    background: rgba(0, 255, 204, 0.1);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+}
+
+.project__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--primary-color);
+}
+
+.timeline__item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+}
+
+.timeline__item::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav__menu {
+        display: none;
+    }
+    
+    .hero__title {
+        font-size: 2.5rem;
+    }
+    
+    .projects__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* LinkedIn CTA Section */
+.linkedin-cta {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(10, 102, 194, 0.1);
+    border-radius: 1rem;
+    border: 2px solid rgba(10, 102, 194, 0.2);
+}
+
+.linkedin-icon {
+    font-size: 4rem;
+    color: #0a66c2;
+    margin-bottom: 1rem;
+}
+
+.btn--linkedin {
+    background: #0a66c2;
+    color: white !important;
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn--linkedin:hover {
+    background: #004182;
+    transform: translateY(-2px);
+}
+
+.linkedin-profile {
+    color: #0a66c2;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.linkedin-profile:hover {
+    text-decoration: underline;
+}
+
+/* Adjust contact grid layout */
+.contact__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .contact__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
