@@ -326,3 +326,8 @@ body {
         grid-template-columns: 1fr 1fr;
     }
 }
+.icon-img {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle; /* Alinha com o texto, como o <i> */
+}
