@@ -172,6 +172,17 @@ body {
     box-shadow: 0 10px 20px rgba(0, 255, 204, 0.15);
 }
 
+.project__icon__bigger {
+    font-size: 130px;
+    color: var(--primary-color);
+    margin-top: -6rem;
+    margin-bottom: -3rem;
+}
+.icon-img__bigger {
+  width: 8rem;   /* tamanho fixo, não depende do font-size */
+  height: auto;
+}
+
 .project__icon {
     font-size: 2rem;
     color: var(--primary-color);
